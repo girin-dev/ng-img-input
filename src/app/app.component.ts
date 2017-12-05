@@ -2,9 +2,14 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `
+    <h1>{{title}}</h1>
+    <input type='file' accept="image/*" (change)="readUrl($event)" multiple>
+    <img *ngFor="let u of dataUrl" [src]="u" width="300px">
+  `,
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'app works!';
   dataUrl: any[] = [];
